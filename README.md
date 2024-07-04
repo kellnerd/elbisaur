@@ -14,7 +14,7 @@ deno run jsr:@kellnerd/elbisaur
 If you don’t want to have to remember the URL and grant permissions every time, you can [install] it with the permissions specified as arguments:
 
 ```sh
-deno install --allow-env=LB_USER,LB_TOKEN,ELBISAUR_LISTEN_TEMPLATE --allow-net=jsr.io,api.listenbrainz.org,musicbrainz.org --allow-read --allow-write https://jsr.io/@kellnerd/elbisaur
+deno install --global --allow-env=LB_USER,LB_TOKEN,ELBISAUR_LISTEN_TEMPLATE --allow-net=jsr.io,api.listenbrainz.org,musicbrainz.org --allow-read --allow-write jsr:@kellnerd/elbisaur
 ```
 
 Now you can simply run the app by executing `elbisaur`, which should show you the help and complain about a missing required environment variable `LB_TOKEN`.
