@@ -1,3 +1,4 @@
+import info from "./deno.json" with { type: "json" };
 import { JsonLogger, readListensFile } from "./utils.ts";
 import { getListenFilter } from "./listen_filter.ts";
 import { getListenModifier } from "./listen_modifier.ts";
@@ -30,7 +31,7 @@ const contactUrl = "https://github.com/kellnerd/elbisaur";
 /** Cliffy command line interface of `elbisaur`. */
 export const cli = new Command()
   .name("elbisaur")
-  .version("0.8.2")
+  .version(info.version)
   .description("Manage your ListenBrainz listens and process listen dumps.")
   .globalEnv("LB_TOKEN=<UUID>", "ListenBrainz user token.", {
     prefix: "LB_",
