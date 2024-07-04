@@ -1,5 +1,5 @@
-import type { InsertedListen, Listen } from "./listen.ts";
-import { parseJson, parseJsonLines } from "./parser/json.ts";
+import type { InsertedListen, Listen } from "@kellnerd/listenbrainz/listen";
+import { parseJson, parseJsonLines } from "@kellnerd/listenbrainz/parser/json";
 import { assert } from "@std/assert/assert";
 import { extname } from "@std/path/extname";
 
