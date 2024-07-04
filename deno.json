@@ -15,8 +15,6 @@
     "@std/assert": "jsr:@std/assert@^1.0.0-rc.3",
     "@std/async": "jsr:@std/async@^1.0.0-rc.3",
     "@std/csv": "jsr:@std/csv@^1.0.0-rc.1",
-    "@std/fmt": "jsr:@std/fmt@^0.225.5",
-    "@std/path": "jsr:@std/path@^1.0.0-rc.3",
     "@std/streams": "jsr:@std/streams@^1.0.0-rc.2",
     "@std/uuid": "jsr:@std/uuid@^1.0.0"
   },
