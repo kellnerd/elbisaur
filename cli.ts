@@ -3,6 +3,7 @@ import { JsonLogger, readListensFile } from "./utils.ts";
 import { getListenFilter } from "./listen_filter.ts";
 import { getListenModifier } from "./listen_modifier.ts";
 import { Command, ValidationError } from "@cliffy/command";
+import { CompletionsCommand } from "@cliffy/command/completions";
 import { UpgradeCommand } from "@cliffy/command/upgrade";
 import { JsrProvider } from "@cliffy/command/upgrade/provider/jsr";
 import { ListenBrainzClient } from "@kellnerd/listenbrainz";
@@ -452,6 +453,8 @@ export const cli = new Command()
     }
     await output.close();
   })
+  // Generate shell completions and upgrade CLI
+  .command("completions", new CompletionsCommand())
   .command(
     "upgrade",
     new UpgradeCommand({
