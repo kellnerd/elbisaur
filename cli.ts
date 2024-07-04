@@ -3,6 +3,8 @@ import { JsonLogger, readListensFile } from "./utils.ts";
 import { getListenFilter } from "./listen_filter.ts";
 import { getListenModifier } from "./listen_modifier.ts";
 import { Command, ValidationError } from "@cliffy/command";
+import { UpgradeCommand } from "@cliffy/command/upgrade";
+import { JsrProvider } from "@cliffy/command/upgrade/provider/jsr";
 import { ListenBrainzClient } from "@kellnerd/listenbrainz";
 import {
   type AdditionalTrackInfo,
@@ -449,7 +451,21 @@ export const cli = new Command()
       }
     }
     await output.close();
-  });
+  })
+  .command(
+    "upgrade",
+    new UpgradeCommand({
+      provider: new JsrProvider({
+        package: info.name as `@${string}/${string}`,
+      }),
+      args: [
+        "--allow-env=LB_USER,LB_TOKEN,ELBISAUR_LISTEN_TEMPLATE",
+        "--allow-net=jsr.io,api.listenbrainz.org,musicbrainz.org",
+        "--allow-read",
+        "--allow-write",
+      ],
+    }),
+  );
 
 function makeValidIndexTypes(input: unknown): Array<string | number> {
   if (typeof input === "string" || typeof input === "number") return [input];
