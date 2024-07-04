@@ -20,6 +20,13 @@
       "**/*.md"
     ]
   },
+  "lint": {
+    "rules": {
+      "exclude": [
+        "no-slow-types"
+      ]
+    }
+  },
   "publish": {
     "exclude": [
       ".github/",

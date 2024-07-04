@@ -15,4 +15,5 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-      - run: npx jsr publish
+      # It is impossible to infer the type of a complex cliffy command.
+      - run: npx jsr publish --allow-slow-types
