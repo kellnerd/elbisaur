@@ -1,6 +1,6 @@
 {
   "name": "@kellnerd/elbisaur",
-  "version": "0.8.2",
+  "version": "0.9.0-alpha",
   "exports": "./cli.ts",
   "imports": {
     "@cliffy/command": "jsr:@cliffy/command@1.0.0-rc.5",
