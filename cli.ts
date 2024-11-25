@@ -453,9 +453,16 @@ export const cli = new Command()
     }
     await output.close();
   })
-  // Generate shell completions and upgrade CLI
-  .command("completions", new CompletionsCommand())
-  .command(
+  // Generate shell completions
+  .command("completions", new CompletionsCommand());
+
+// Workaround for https://github.com/denoland/deno/issues/15996
+const isCompiled = Deno.mainModule.includes("deno-compile");
+
+// Provide upgrade command (based on `deno install`),
+// except for compiled executables where this will not work.
+if (!isCompiled) {
+  cli.command(
     "upgrade",
     new UpgradeCommand({
       provider: new JsrProvider({
@@ -469,6 +476,7 @@ export const cli = new Command()
       ],
     }),
   );
+}
 
 function makeValidIndexTypes(input: unknown): Array<string | number> {
   if (typeof input === "string" || typeof input === "number") return [input];
