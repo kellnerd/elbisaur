@@ -354,6 +354,8 @@ export const cli = new Command()
       const input = await Deno.readTextFile(inputPath);
       const history = parseSpotifyExtendedHistory(input, {
         includeDebugInfo: options.debug,
+        onInvalidItem: (_item, index, reason) =>
+          console.warn(`Skipped item at index ${index}: ${reason}`),
       });
       for (const listen of history) {
         if (listenFilter(listen)) {
