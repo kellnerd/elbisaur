@@ -1,6 +1,6 @@
 {
   "name": "@kellnerd/elbisaur",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "exports": "./cli.ts",
   "imports": {
     "@cliffy/command": "jsr:@cliffy/command@1.0.0-rc.5",
@@ -35,6 +35,7 @@
   },
   "tasks": {
     "build-docs": "deno doc --html --name=elbisaur cli.ts utils.ts",
+    "bump": "bump -c 'chore: Release version ' -t v",
     "ok": "deno fmt --check && deno lint"
   }
 }
