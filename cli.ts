@@ -323,7 +323,7 @@ export const cli = new Command()
     Parse Spotify Extended Streaming History and discard all skipped streams.
     Only keep streams which were played for at least 30 seconds as 'skipped' is not always set.
     ${cmd("elbisaur parse Streaming_History_Audio_2024.json")} ${
-      opt("--filter 'skipped!=1&&ms_played>=30e3'")
+      opt("--filter 'skipped!=1&&duration_ms>=30e3'")
     }`,
   )
   .action(async function (options, inputPath, outputPath) {

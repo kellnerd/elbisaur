@@ -191,7 +191,7 @@ These files can be parsed with elbisaur, but they also contain skipped streams w
 Parse Spotify history file and only keep streams which were not skipped *and* were played for at least 30 seconds:
 
 ```sh
-elbisaur parse Streaming_History_Audio_2024.json --filter "skipped!=1&&ms_played>=30e3"
+elbisaur parse Streaming_History_Audio_2024.json --filter "skipped!=1&&duration_ms>=30e3"
 ```
 
 While some skipped listens can be detected by their `reason_end` properties, bad listens can also have a reason of `trackdone` although Spotify failed to play them (playback duration is only a second or two).
